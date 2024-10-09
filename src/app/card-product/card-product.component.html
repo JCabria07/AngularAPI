@@ -1,0 +1,68 @@
+<div class="mt-3">
+    <div class="col">
+        <div class="card h-100">
+            <img [src]="image" class="card-img-top" [alt]="title">
+            <div class="card-body">
+                <h5 class="card-title"><strong>{{ title }}</strong></h5>
+                <p class="card-text">{{ description }}</p>
+                <div class="text-center">
+                    <span class="text-success-emphasis h4"><strong><i class="bi bi-cash me-0 fs-4"></i> {{ price }} USD</strong></span>
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-outline-info mt-2" (click)="openModal()"><i class="bi bi-info-circle me-2 fs-5"></i>Información</button>
+                    <button type="button" class="btn btn-outline-success" (click)="addProduct()"><i class="bi bi-bag-heart-fill fs-5 me-2"></i>Añadir al carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" [class.show]="showToast" [style.display]="showToast ? 'block' : 'none'">
+            <div class="toast-header">
+                <strong class="me-auto">Producto Añadido</strong>
+                <button type="button" class="btn-close" (click)="showToast = false"></button>
+            </div>
+            <div class="toast-body">
+                {{ title }} ha sido añadido al carrito.
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal (información de la card sin cambiar ruta) -->
+    <div class="modal" tabindex="-1" [class.show]="isModalOpen" [style.display]="isModalOpen ? 'block' : 'none'" (click)="closeModal()">
+        <div class="modal-dialog modal-lg" (click)="$event.stopPropagation()">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{ title }}</h5>
+                    <button type="button" class="btn-close" (click)="closeModal()"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card mb-3">
+                        <img [src]="image" class="card-img-top" [alt]="title">
+                        <div class="card-body">
+                            <p class="card-text"><strong>Categoría: {{ category }}</strong></p>
+                            <p class="card-text">Descripción: {{ description }}</p>
+                            <hr>
+                            <p class="card-text">Calificación del objeto: <strong><i class="bi bi-star-fill me-1 fs-6"></i>{{ rate }}</strong></p>
+                            <p class="card-text">Cantidad de reseñas: <strong>{{ count }}</strong></p>
+                            <hr>
+                            <p class="card-text">
+                                <small class="text-body-success">
+                                    <div class="d-grid gap-2">
+                                        <button type="button" class="btn btn-success" (click)="addProduct()"><i class="bi bi-bag-heart-fill fs-6 me-2 "></i>Añadir al carrito</button>
+                                    </div>
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" (click)="closeModal()"><i class="bi bi-x-square fs-6 me-2"></i>Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

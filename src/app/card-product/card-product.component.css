@@ -1,0 +1,42 @@
+/* Para asegurar que todas las tarjetas se comporten igual */
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Mantiene la tarjeta con la misma altura en el contenedor */
+}
+
+  /* Asegura que el cuerpo de la tarjeta ocupe el espacio restante */
+.card-body {
+    flex-grow: 1; /* Permite que el contenido crezca según sea necesario */
+    overflow: hidden; /* Oculta el contenido que desborda */
+}
+
+  /* Controla el texto de la descripción */
+.card-text {
+    overflow: hidden; /* Oculta el contenido que sobrepasa el contenedor */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos si el texto es demasiado largo */
+    display: -webkit-box;
+    -webkit-box-orient: vertical; 
+    -webkit-line-clamp: 3; /* Limita el texto a 3 líneas */
+    margin-bottom: 1rem; /* Espaciado adicional entre la descripción y el pie de la tarjeta */
+}
+
+  /* Asegura que el footer esté siempre al fondo de la tarjeta */
+.card-footer {
+    text-align: center;
+    margin-top: auto; /* Asegura que el footer se alinee al fondo */
+}
+
+  /* Mantiene un espacio consistente en el pie de las tarjetas */
+.card-footer button {
+    margin: 5px; /* Espaciado entre botones */
+}
+
+.card-img-top {
+    width: 100%; /* Ocupa todo el ancho de la tarjeta */
+    height: 200px; /* O ajusta según tus necesidades */
+    object-fit: contain; /* Ajusta la imagen sin cortarla */
+    background-color: #f8f9fa; /* Fondo para el espacio vacío */
+}
+
+  /* ###GRACIAS CHATGPT POR ARREGLAR EL CSS, LAS IMÁGENES NO TIENEN LA MISMA PROPORCIÓN, LO CUÁL GENERABA QUE LAS TARJETAS SE VIERAN DISPAREJAS. #### */   
